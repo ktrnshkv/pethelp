@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Помощь рядом — как помочь уличному животному, не забирая его домой</title>
+  <style>
+    :root {
+      --bg: #efe7d8;
+      --bg-tint: #f5eee1;
+      --surface: #fbf5ea;
+      --surface-2: #f1e8d8;
+      --surface-3: #e9dfcc;
+      --text: #2a2520;
+      --text-soft: #6a5f52;
+      --text-mute: #8a7f72;
+      --border: #e2d7c4;
+      --border-strong: #cbbfa8;
+      --green: #3f6b4a;
+      --green-soft: #e2ebdc;
+      --green-ink: #2b4d34;
+      --amber: #a86a25;
+      --amber-soft: #f6e6cd;
+      --amber-ink: #6f4413;
+      --red: #9f3d46;
+      --red-soft: #f2dadd;
+      --red-ink: #6f262d;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 2px rgba(58, 44, 28, 0.06), 0 1px 0 rgba(58, 44, 28, 0.02);
+      --shadow-md: 0 6px 18px rgba(58, 44, 28, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.25; letter-spacing: -0.01em; }
+    p { margin: 0; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* ---------- header ---------- */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(239, 231, 216, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+    }
+    .logo:hover { text-decoration: none; }
+
+    .logo__mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      color: var(--green);
+      font-size: 18px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 14px;
+      color: var(--text-soft);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: background .15s, color .15s;
+    }
+
+    .nav a:hover {
+      background: var(--surface);
+      color: var(--green-ink);
+      text-decoration: none;
+    }
+
+    /* ---------- hero ---------- */
+
+    .hero { padding: 52px 0 36px; }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero__main {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-ink);
+      background: var(--green-soft);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4.2vw, 40px);
+      font-weight: 700;
+      margin-bottom: 14px;
+      max-width: 22ch;
+    }
+
+    .hero__lead {
+      font-size: 17px;
+      color: var(--text-soft);
+      margin-bottom: 26px;
+      max-width: 54ch;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+
+    .btn--primary {
+      background: var(--green);
+      color: #fff;
+    }
+    .btn--primary:hover { background: var(--green-ink); text-decoration: none; }
+
+    .btn--ghost {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+    .btn--ghost:hover { background: var(--surface-2); text-decoration: none; }
+
+    .hero__side {
+      background: var(--surface-2);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .hero__side h2 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero__side p {
+      font-size: 15px;
+      color: var(--text-soft);
+    }
+
+    .stat {
+      padding-top: 16px;
+      border-top: 1px solid var(--border-strong);
+    }
+
+    .stat__num {
+      display: block;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--green-ink);
+      line-height: 1.1;
+    }
+
+    .stat__label {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    /* ---------- section ---------- */
+
+    .section {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-strong);
+    }
+
+    .section__head {
+      margin-bottom: 22px;
+      max-width: 64ch;
+    }
+
+    .section__head h2 {
+      font-size: clamp(22px, 2.6vw, 27px);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .section__head p {
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    /* ---------- animals ---------- */
+
+    .animals {
+      display: grid;
+      gap: 18px;
+    }
+
+    .animal {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .animal__head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .animal__icon {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      flex: 0 0 auto;
+    }
+
+    .animal__titles h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .animal__titles p {
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .animal__body {
+      padding: 6px 24px 18px;
+    }
+
+    .item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .item:last-child { border-bottom: 0; }
+
+    .item__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .item__summary::-webkit-details-marker { display: none; }
+
+    .item__summary:hover { color: var(--green-ink); }
+
+    .item__icon {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      color: var(--text-soft);
+      transition: transform .2s, background .15s, color .15s, border-color .15s;
+    }
+
+    .item[open] .item__icon {
+      transform: rotate(45deg);
+      background: var(--green-soft);
+      border-color: var(--green);
+      color: var(--green-ink);
+    }
+
+    .item__content {
+      padding: 0 0 18px;
+      font-size: 15px;
+      color: var(--text-soft);
+      display: grid;
+      gap: 10px;
+    }
+
+    .item__content ul {
+      display: grid;
+      gap: 6px;
+      padding-left: 18px;
+      list-style: disc;
+    }
+
+    .item__content li { padding-left: 2px; }
+
+    .item__content h4 {
+      margin: 4px 0 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .item__content p { line-height: 1.55; }
+
+    .note-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    .note-row--ok { background: var(--green-soft); color: var(--green-ink); }
+    .note-row--no { background: var(--red-soft); color: var(--red-ink); }
+    .note-row--info { background: var(--surface-3); color: var(--text-soft); }
+
+    .note-row__label {
+      font-weight: 700;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
+    /* ---------- help block highlight ---------- */
+
+    .animal--help .animal__head {
+      background: var(--green-soft);
+      border-bottom-color: var(--green);
+    }
+
+    .animal--help .animal__icon {
+      background: var(--surface);
+      border-color: var(--green);
+      color: var(--green-ink);
+    }
+
+    .animal--help .animal__titles h3 { color: var(--green-ink); }
+
+    /* ---------- footer ---------- */
+
+    .footer {
+      padding: 30px 0 44px;
+      border-top: 1px solid var(--border-strong);
+      margin-top: 36px;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .footer__inner {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer p { max-width: 64ch; }
+
+    /* ---------- responsive ---------- */
+
+    @media (max-width: 900px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__main { padding: 26px; }
+      .header__inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .nav { justify-content: flex-start; }
+    }
+
+    @media (max-width: 560px) {
+      .hero { padding: 34px 0 26px; }
+      .section { padding: 30px 0; }
+      .animal__head { padding: 16px 18px; gap: 12px; }
+      .animal__body { padding: 4px 18px 14px; }
+      .item__summary { font-size: 15px; padding: 14px 0; }
+      .hero__main { padding: 22px; }
+      .hero__side { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="#top">
+      <span class="logo__mark">🐾</span>
+      <span>Помощь рядом</span>
+    </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__main">
+        <span class="eyebrow">Памятка для горожан</span>
+        <h1>Как помочь уличному животному, если забрать его домой нельзя</h1>
+        <p class="hero__lead">
+          Простые и безопасные советы для кошек, собак, птиц и других животных:
+          чем кормить, как помочь зимой, что делать с больным животным и как помочь без забора домой.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#cats">Памятки по животным</a>
+          <a class="btn btn--ghost" href="#help">Как помочь без дома</a>
+        </div>
+      </div>
+      <aside class="hero__side">
+        <div>
+          <h2>Помощь не обязана быть «забрать домой»</h2>
+          <p>Можно кормить правильно, оставлять воду, делать укрытия, фотографировать животных для поиска хозяев и поддерживать приюты. Главное — не навредить.</p>
+        </div>
+        <div class="stat">
+          <span class="stat__num">3,6 млн</span>
+          <span class="stat__label">бездомных кошек и собак в России по оценкам Всероссийской переписи приютов</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="animals">
+    <div class="container">
+      <div class="section__head">
+        <h2>Памятки по видам животных</h2>
+        <p>Раскройте нужный пункт — внутри короткие советы, собранные по рекомендациям ветеринаров и волонтёров.</p>
+      </div>
+
+      <div class="animals">
+
+        <article class="animal" id="cats">
+          <div class="animal__head">
+            <div class="animal__icon">🐈</div>
+            <div class="animal__titles">
+              <h3>Кошки</h3>
+              <p>Живёт во дворе, но забрать домой нельзя — самый частый случай.</p>
+            </div>
+          </div>
+          <div class="animal__body">
+
+            <details class="item" open>
+              <summary class="item__summary">
+                Чем кормить и поить
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <div class="note-row note-row--ok">
+                  <span class="note-row__label">Можно</span>
+                  <span>Готовый кошачий корм (сухой или влажный), варёное мясо без соли и специй (курица, индейка, говядина), рисовая или гречневая каша на воде без масла. Порция — примерно 30–50 г влажного или 15–25 г сухого корма на кошку за раз.</span>
+                </div>
+                <div class="note-row note-row--no">
+                  <span class="note-row__label">Нельзя</span>
+                  <span>Сосиски, сардельки, копчёности, шоколад, лук, чеснок, виноград и изюм, солёное, сладкое, жареное, остатки со стола, прокисшую еду, кости. Всё это может вызвать отравление или травму кишечника.</span>
+                </div>
+                <h4>Как и когда кормить</h4>
+                <ul>
+                  <li>Кормите в одно и то же время — кошки быстро привыкают к режиму.</li>
+                  <li>Не оставляйте еду надолго: влажный корм портится за 1–2 часа, особенно летом.</li>
+                  <li>Не кормите с руки незнакомую кошку — положите еду и отойдите на 2–3 метра.</li>
+                  <li>Не давайте еду прямо у подъезда или на детской площадке: это провоцирует конфликты с соседями. Выберите укромное место в стороне от дорожек.</li>
+                  <li>Убирайте за собой упаковку и остатки — иначе кошка может съесть испорченное, а дворовые службы будут недовольны.</li>
+                </ul>
+                <h4>Вода</h4>
+                <ul>
+                  <li>Вода важнее еды: без неё кошка страдает быстрее, чем без корма.</li>
+                  <li>Меняйте воду 2–3 раза в день, летом — чаще.</li>
+                  <li>Зимой не оставляйте воду в металлической посуде: язык прилипает, кошка может травмироваться. Лучше пластик или керамика.</li>
+                  <li>В мороз наливайте тёплую (не горячую) воду — она дольше не замерзает.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Как вести себя с незнакомой кошкой
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <ul>
+                  <li>Не подходите резко и не хватайте кошку: она может испугаться и оцарапать.</li>
+                  <li>Присядьте, говорите тихо, протяните руку и дайте кошке самой подойти.</li>
+                  <li>Не трогайте кошку, которая ест, спит или прячется.</li>
+                  <li>Не берите на руки дикую или полудикую кошку без необходимости — это стресс и для неё, и для вас.</li>
+                  <li>Если кошка прижала уши, шипит, бьёт хвостом — отойдите. Это сигнал «не подходи».</li>
+                  <li>Если вас укусили или сильно оцарапали — промойте рану водой с мылом, обработайте антисептиком и обратитесь в травмпункт. Уличные кошки могут быть переносчиками инфекций.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Зимой: укрытие и кормление
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <h4>Кормление</h4>
+                <ul>
+                  <li>Кормите тёплой (не горячей) пищей — она помогает согреться.</li>
+                  <li>Порции зимой можно немного увеличить: на холод кошка тратит больше энергии.</li>
+                  <li>Не оставляйте мокрый корм на морозе: он замерзает и становится бесполезным.</li>
+                </ul>
+                <h4>Простое укрытие</h4>
+                <ul>
+                  <li>Возьмите плотную картонную коробку или ящик, прорежьте вход сбоку (не сверху).</li>
+                  <li>Внутрь положите солому или сено — они не впитывают влагу и держат тепло. Вата, тряпки и сено-«пыль» намокают и замерзают, поэтому не подходят.</li>
+                  <li>Приподнимите коробку на 15–20 см от земли (кирпичи, доски) — так меньше тянет холодом и не заливает водой.</li>
+                  <li>Поставьте укрытие в тихом месте: за кустами, у стены, вдали от дорожек и собак.</li>
+                  <li>Не делайте укрытие у подъезда: это может вызвать недовольство соседей и проблемы с управляющей компанией.</li>
+                </ul>
+                <h4>Безопасность</h4>
+                <ul>
+                  <li>Перед поездкой на машине постучите по капоту и колесам: кошки часто прячутся под капотом и в арках.</li>
+                  <li>Не используйте антифриз и реагенты рядом с кормушкой — это яд для животных.</li>
+                  <li>Если видите кошку с обмороженными ушами или лапами — не растирайте снегом, обратитесь к волонтёрам или в ветклинику.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Если кошка больна или травмирована
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <h4>Признаки, что кошке нужна помощь</h4>
+                <ul>
+                  <li>Кошка не ест и не пьёт больше суток, лежит, не реагирует.</li>
+                  <li>Выделения из носа, глаз, рта; кашель, хрипы, тяжёлое дыхание.</li>
+                  <li>Кровь, гной, раны, хромота, неестественная поза.</li>
+                  <li>Сильное истощение, обезвоживание (кожа не расправляется, если собрать в складку).</li>
+                  <li>Слюнотечение, судороги, странное поведение — возможны опасные инфекции, не подходите близко.</li>
+                </ul>
+                <h4>Что делать</h4>
+                <ul>
+                  <li>Не лечите самостоятельно: человеческие лекарства (парацетамол, ибупрофен) смертельно опасны для кошек.</li>
+                  <li>Сфотографируйте кошку, запомните место, позвоните в местную ветклинику или волонтёрам — они подскажут, куда обратиться.</li>
+                  <li>Если кошка в опасном месте (на дороге, в подвале с водой) — аккуратно перенесите её в переноску или плотную коробку, не прижимая к себе.</li>
+                  <li>При укусе или сильной царапине — обработайте рану и обратитесь в травмпункт: уличные кошки могут переносить бешенство и другие инфекции.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Если кошка потерялась
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <ul>
+                  <li>Проверьте, есть ли у кошки ошейник, чип или клеймо — по ним можно найти хозяев.</li>
+                  <li>Сфотографируйте кошку при хорошем свете, сделайте несколько ракурсов.</li>
+                  <li>Запишите место, где вы её видели, и примерное время.</li>
+                  <li>Разместите объявление в местных группах ВК/Telegram, на «Потеряшке» и в чатах района.</li>
+                  <li>Расклейте бумажные объявления рядом с местом находки — не на столбах и дверях, а на специальных досках или в подъездах по согласованию.</li>
+                  <li>Не отдавайте кошку первому желающему: попросите фото условий, задайте пару вопросов, лучше — передавайте через волонтёров или с договором.</li>
+                </ul>
+              </div>
+            </details>
+
+          </div>
+        </article>
+
+        <article class="animal" id="dogs">
+          <div class="animal__head">
+            <div class="animal__icon">🐕</div>
+            <div class="animal__titles">
+              <h3>Собаки</h3>
+              <p>Главное — безопасность человека и животного. Не каждая собака хочет контакта.</p>
+            </div>
+          </div>
+          <div class="animal__body">
+
+            <details class="item" open>
+              <summary class="item__summary">
+                Чем кормить и поить
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <div class="note-row note-row--ok">
+                  <span class="note-row__label">Можно</span>
+                  <span>Готовый собачий корм, варёное мясо без соли и специй (говядина, курица, индейка), рисовая или гречневая каша на воде. Порция зависит от размера: маленькой собаке — 100–150 г, средней — 250–400 г, крупной — 500–700 г за раз.</span>
+                </div>
+                <div class="note-row note-row--no">
+                  <span class="note-row__label">Нельзя</span>
+                  <span>Сосиски, сардельки, копчёности, шоколад (яд для собак), лук, чеснок, виноград и изюм, кости (особенно трубчатые — могут проткнуть кишечник), солёное, жареное, остатки со стола, испорченную еду.</span>
+                </div>
+                <h4>Как кормить безопасно</h4>
+                <ul>
+                  <li>Не кормите с руки незнакомую собаку: положите еду и отойдите на 3–5 метров.</li>
+                  <li>Не подходите к собаке, которая ест или грызёт что-то — она может защищать еду.</li>
+                  <li>Не кормите стаю в одном месте у подъезда или детской площадки: это пугает людей и провоцирует конфликты.</li>
+                  <li>Убирайте за собой упаковку и остатки еды.</li>
+                  <li>Не давайте еду через забор или из-за угла — собака может испугаться.</li>
+                </ul>
+                <h4>Вода</h4>
+                <ul>
+                  <li>Оставляйте чистую воду в устойчивой посуде — особенно летом и в мороз.</li>
+                  <li>Меняйте воду 2–3 раза в день, зимой — наливайте тёплую, чтобы дольше не замерзала.</li>
+                  <li>Не используйте металлические миски зимой: язык прилипает.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Безопасное поведение рядом с собакой
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <h4>Как понять, что собака настроена мирно</h4>
+                <ul>
+                  <li>Хвост расслаблен или виляет, уши не прижаты, поза мягкая.</li>
+                  <li>Собака сама не подходит — не навязывайтесь.</li>
+                </ul>
+                <h4>Признаки опасности</h4>
+                <ul>
+                  <li>Собака рычит, скалится, шерсть на холке дыбом, уши прижаты, хвост напряжён.</li>
+                  <li>Собака ест, спит или охраняет щенков — не подходите.</li>
+                  <li>Собака смотрит прямо, не отводит взгляд, напряжена.</li>
+                  <li>Слюнотечение, странное поведение, агрессия без причины — возможны опасные инфекции, не подходите близко.</li>
+                </ul>
+                <h4>Что делать, если собака агрессивна</h4>
+                <ul>
+                  <li>Не бегите: бегущего человека собака воспринимает как добычу.</li>
+                  <li>Не кричите и не машите руками.</li>
+                  <li>Медленно отходите спиной, не поворачиваясь к собаке спиной полностью, говорите спокойным низким голосом.</li>
+                  <li>Если есть сумка или куртка — держите перед собой как барьер.</li>
+                  <li>Если собака напала — прикройте лицо и шею руками, не сопротивляйтесь активно, зовите на помощь.</li>
+                </ul>
+                <h4>Если вас укусила собака</h4>
+                <ul>
+                  <li>Промойте рану водой с мылом 10–15 минут, обработайте антисептиком.</li>
+                  <li>Обратитесь в травмпункт: может понадобиться вакцинация от бешенства.</li>
+                  <li>Постарайтесь запомнить собаку и место — это важно для врачей.</li>
+                  <li>Сообщите в местную службу отлова или волонтёрам, чтобы собаку проверили.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Зимой: кормление и укрытие
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <h4>Кормление</h4>
+                <ul>
+                  <li>В морозы собакам нужна тёплая (не горячая) пища и доступ к воде.</li>
+                  <li>Порции зимой можно увеличить: на холод уходит больше энергии.</li>
+                  <li>Не оставляйте мокрый корм на морозе — он замерзает.</li>
+                </ul>
+                <h4>Укрытие</h4>
+                <ul>
+                  <li>Не тревожьте собаку, свернувшуюся в клубок: она греется, не будите её.</li>
+                  <li>Простое укрытие — плотная коробка или ящик с соломой, приподнятый над землёй, в тихом месте.</li>
+                  <li>Не ставьте укрытие у подъезда или на детской площадке — это вызывает конфликты.</li>
+                  <li>Не используйте вату и тряпки: они намокают и замерзают.</li>
+                </ul>
+                <h4>Безопасность</h4>
+                <ul>
+                  <li>Не используйте антифриз и реагенты рядом с кормушкой — это яд.</li>
+                  <li>Перед поездкой на машине проверяйте, не спряталась ли собака под машиной.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Если собака больна или травмирована
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <h4>Признаки, что собаке нужна помощь</h4>
+                <ul>
+                  <li>Не ест, не пьёт, лежит, не реагирует.</li>
+                  <li>Хромота, раны, кровь, гной, неестественная поза.</li>
+                  <li>Тяжёлое дыхание, кашель, хрипы, выделения из носа и глаз.</li>
+                  <li>Сильное истощение, обезвоживание.</li>
+                  <li>Слюнотечение, судороги, агрессия без причины — не подходите, это может быть бешенство.</li>
+                </ul>
+                <h4>Что делать</h4>
+                <ul>
+                  <li>Не лечите самостоятельно: человеческие лекарства опасны для собак.</li>
+                  <li>Не трогайте травмированную собаку голыми руками — она может укусить от боли.</li>
+                  <li>Позвоните в местную ветклинику, службу помощи животным или волонтёрам.</li>
+                  <li>Если собака в опасном месте (на дороге) — предупредите водителей, но не пытайтесь ловить без опыта.</li>
+                  <li>При укусе — промойте рану и обратитесь в травмпункт.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="item">
+              <summary class="item__summary">
+                Если собака потерялась
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <ul>
+                  <li>Проверьте ошейник, адресник, чип — по ним можно найти хозяев.</li>
+                  <li>Сфотографируйте собаку при хорошем свете, сделайте несколько ракурсов.</li>
+                  <li>Запишите место и время, где вы её видели.</li>
+                  <li>Разместите объявление в местных группах ВК/Telegram и на «Потеряшке».</li>
+                  <li>Не отдавайте собаку первому желающему: попросите фото условий, задайте вопросы, лучше — через волонтёров или с договором.</li>
+                  <li>Если собака породистая, проверьте объявления о пропаже — возможно, её уже ищут.</li>
+                </ul>
+              </div>
+            </details>
+
+          </div>
+        </article>
+
+        <article class="animal" id="birds">
+          <div class="animal__head">
+            <div class="animal__icon">🕊️</div>
+            <div class="animal__titles">
+              <h3>Птицы</h3>
+              <p>Голуби, вороны, утки: чем кормить и когда лучше не вмешиваться.</p>
+            </div>
+          </div>
+          <div class="animal__body">
+            <details class="item" open>
+              <summary class="item__summary">
+                Чем кормить
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <div class="note-row note-row--ok">
+                  <span class="note-row__label">Можно</span>
+                  <span>Специальный корм для птиц, зерно, крупы, несолёные и нежареные семечки. Для водоплавающих — зерно или специальный корм.</span>
+                </div>
+                <div class="note-row note-row--no">
+                  <span class="note-row__label">Нельзя</span>
+                  <span>Хлеб, сдобу, чипсы, солёные семечки, остатки со стола. Хлеб в воде загрязняет водоёмы и вредит птицам.</span>
+                </div>
+              </div>
+            </details>
+            <details class="item">
+              <summary class="item__summary">
+                Птенцы и травмированные птицы
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <ul>
+                  <li>Если птенец не травмирован и рядом нет опасности — не трогайте его.</li>
+                  <li>Не берите птицу голыми руками без необходимости.</li>
+                  <li>Травмированную птицу лучше передать специалисту или волонтёру.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="item">
+              <summary class="item__summary">
+                Вода и безопасность
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <p>В жару оставляйте чистую воду в неглубокой устойчивой посуде. Не кормите птиц у детских площадок и не оставляйте мусор.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="animal" id="other">
+          <div class="animal__head">
+            <div class="animal__icon">🦔</div>
+            <div class="animal__titles">
+              <h3>Другие животные</h3>
+              <p>Белки, ежи, грызуны: когда помощь нужна, а когда — нет.</p>
+            </div>
+          </div>
+          <div class="animal__body">
+            <details class="item" open>
+              <summary class="item__summary">
+                Общие принципы
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <p>Не кормите диких животных человеческой едой. Не берите их голыми руками: они могут быть переносчиками инфекций. Если животное травмировано — обратитесь к специалистам.</p>
+              </div>
+            </details>
+            <details class="item">
+              <summary class="item__summary">
+                Белки и ежи
+                <span class="item__icon">+</span>
+              </summary>
+              <div class="item__content">
+                <p>Белкам можно предлагать нежареные несолёные семечки и специальный корм. Ежам нельзя молоко и человеческую еду. Без необходимости лучше не вмешиваться.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="help">
+    <div class="container">
+      <div class="section__head">
+        <h2>Как помочь, если забрать домой нельзя</h2>
+        <p>Помощь не заканчивается на «взять к себе». Есть несколько системных способов, которые работают не хуже, а иногда — и лучше.</p>
+      </div>
+
+      <article class="animal animal--help">
+        <div class="animal__head">
+          <div class="animal__icon">🤝</div>
+          <div class="animal__titles">
+            <h3>Способы помочь</h3>
+            <p>Выберите то, что вам по силам и по времени — даже одно действие уже полезно.</p>
+          </div>
+        </div>
+        <div class="animal__body">
+
+          <details class="item" open>
+            <summary class="item__summary">
+              Стать куратором животного
+              <span class="item__icon">+</span>
+              </summary>
+            <div class="item__content">
+              <p>Куратор — это человек, который опекает одно конкретное животное: кормит, возит к врачу, ищет хозяев. Забирать домой не обязательно: животное может жить во дворе, а вы помогаете с лечением и пристройством.</p>
+              <h4>Что входит</h4>
+              <ul>
+                <li>Регулярное кормление и вода (или договорённость с другими людьми).</li>
+                <li>Запись в ветклинику, сопровождение на приём.</li>
+                <li>Фото и описание для поиска хозяев.</li>
+                <li>Связь с волонтёрами и потенциальными хозяевами.</li>
+              </ul>
+              <p>Кураторство не требует много времени: достаточно 1–2 часов в неделю.</p>
+            </div>
+          </details>
+
+          <details class="item">
+            <summary class="item__summary">
+              Помочь с пристройством
+              <span class="item__icon">+</span>
+              </summary>
+            <div class="item__content">
+              <h4>Фото и описание</h4>
+              <ul>
+                <li>Сфотографируйте животное при хорошем свете, с нескольких ракурсов.</li>
+                <li>Коротко опишите характер и особенности: ласковый, пугливый, любит детей, не любит других животных.</li>
+                <li>Укажите примерный возраст, пол, район.</li>
+              </ul>
+              <h4>Где размещать</h4>
+              <ul>
+                <li>Проверенные группы пристройства в ВК и Telegram.</li>
+                <li>«Потеряшка» и районные чаты.</li>
+                <li>Волонтёрские сообщества вашего города.</li>
+              </ul>
+              <h4>Безопасная передача</h4>
+              <ul>
+                <li>Не отдавайте животное первому желающему: попросите фото условий, задайте пару вопросов.</li>
+                <li>Лучше передавать через волонтёров или с простым договором.</li>
+                <li>Породистых животных лучше передавать через породные фонды — так выше шанс, что их не используют для разведения.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="item">
+            <summary class="item__summary">
+              Поддержать приют или фонд
+              <span class="item__icon">+</span>
+              </summary>
+            <div class="item__content">
+              <h4>Помощь вещами и кормом</h4>
+              <ul>
+                <li>Купить корм, наполнитель, подстилки, игрушки — по списку нужд конкретного приюта.</li>
+                <li>Проверить список: не покупайте «что попало», у приютов часто есть конкретные запросы.</li>
+              </ul>
+              <h4>Помощь временем</h4>
+              <ul>
+                <li>Погулять с собаками из приюта — это снижает стресс у животных и помогает им социализироваться.</li>
+                <li>Помочь с фотосессией для пристройства.</li>
+                <li>Помочь с транспортом: отвезти животное к врачу или на встречу с хозяином.</li>
+              </ul>
+              <h4>Финансовая помощь</h4>
+              <ul>
+                <li>Поддерживать проверенные фонды, которые публикуют отчётность.</li>
+                <li>Не переводить деньги по личным картам без подтверждения.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="item">
+            <summary class="item__summary">
+              Стерилизация (ОСВВ)
+              <span class="item__icon">+</span>
+              </summary>
+            <div class="item__content">
+              <p>ОСВВ — отлов, стерилизация, вакцинация, возврат. Это гуманный и официальный способ снизить численность бездомных животных без усыпления.</p>
+              <ul>
+                <li>Если животное живёт во дворе, узнайте у волонтёров, стерилизовано ли оно.</li>
+                <li>Стерилизацию часто делают волонтёры бесплатно или за счёт фонда.</li>
+                <li>После стерилизации животное возвращают в привычную среду — оно не размножается и не создаёт новых проблем.</li>
+                <li>Помочь можно деньгами, транспортом или сопровождая животное в клинику.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="item">
+            <summary class="item__summary">
+              Помощь животным в своём дворе
+              <span class="item__icon">+</span>
+              </summary>
+            <div class="item__content">
+              <ul>
+                <li>Кормите в стороне от подъездов, детских площадок и дорожек — чтобы не провоцировать конфликты с соседями.</li>
+                <li>Убирайте за собой остатки еды и упаковку.</li>
+                <li>Не прикармливайте стаю в одном месте: это может пугать людей и приводить к жалобам.</li>
+                <li>Если животное агрессивно — сообщите волонтёрам или в местную службу, не пытайтесь решать проблему самостоятельно.</li>
+                <li>Договоритесь с соседями: часто достаточно объяснить, что вы кормите аккуратно и убираете за собой.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="item">
+            <summary class="item__summary">
+              Помочь информационно
+              <span class="item__icon">+</span>
+              </summary>
+            <div class="item__content">
+              <ul>
+                <li>Поделиться этой памяткой с друзьями и в местных чатах.</li>
+                <li>Рассказать, как правильно кормить и что нельзя давать — многие дают вредную еду «из добрых побуждений».</li>
+                <li>Поддержать репостом объявление о поиске дома для конкретного животного.</li>
+                <li>Не тиражировать непроверенные советы: «покормить хлебом», «напоить молоком» и т. п. часто вредят.</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+      </article>
+
+      <div class="note-row note-row--info" style="margin-top: 22px;">
+        <span class="note-row__label">Важно</span>
+        <span>Памятка не заменяет консультацию ветеринара. Если животное травмировано или опасно — обратитесь в местную ветеринарную службу или к волонтёрам.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>Учебный прототип социального проекта. Материалы носят рекомендательный характер и не заменяют помощь специалистов.</p>
+    <p style="color: var(--text-mute);">Помощь рядом · v1.0</p>
+  </div>
+</footer>
+
+</body>
+</html>
